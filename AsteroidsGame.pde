@@ -1,19 +1,56 @@
-//your variable declarations here
+SpaceShip space = new SpaceShip ();
+
 public void setup() 
 {
+  size(500, 500);
   //your code here
 }
 public void draw() 
 {
-  //your code here
+  background(10, 7, 74);
+  space.show();//your code here
+}
+public void keyPressed()
+{
+  if(key== '0')
+  {
+    space.setX((int)(Math.random()*500));
+    space.setY((int)(Math.random()*500));
+  }
+  if(key== '9')
+  {
+    space.setPointDirection((int)(Math.random()*360));
+  }
 }
 class SpaceShip extends Floater  
 {   
-   public SpaceShip (int){;} 
-   public void setX(int x){myX=x;}
-   public int getX(){return myX;}
-   public void setY(int y){myY=y;}   
-   public int getY()){return myY;}   
+   //private int corners, xCorners[], yCorners[];
+   //private double myCenterX, myCenterY, myDirectionX, myDirectionY, myPointDirection;
+   public SpaceShip ()
+   {
+    corners=4;
+    xCorners = new int[corners]; 
+    yCorners = new int[corners]; 
+    xCorners[0] = 0;
+    yCorners[0] = 36;
+    xCorners[1] = -12;
+    yCorners[1] = 0;
+    xCorners[2] = 0;
+    yCorners[2] = 12;
+    xCorners[3] = 12;
+    yCorners[3] = 0;
+    myColor= color(250);
+    myCenterX=250;
+    myCenterY=250;
+    setDirectionX(0);
+    setDirectionY(0);
+    myPointDirection=180;
+    } 
+
+   public void setX(int x){myCenterX=x;}
+   public int getX(){return (int)myCenterX;}
+   public void setY(int y){myCenterY=y;}   
+   public int getY(){return (int)myCenterY;}   
    public void setDirectionX(double x){myDirectionX=x;}   
    public double getDirectionX(){return myDirectionX;}   
    public void setDirectionY(double y){myDirectionY=y;;}   
