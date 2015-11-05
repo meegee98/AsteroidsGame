@@ -1,43 +1,51 @@
 SpaceShip space = new SpaceShip ();
-//Star [] stars = new Stars[100];
+Star [] stars = new Star[150];
 
 public void setup() 
 {
-  size(500, 500);
- /*for(int i=0; i<stars.length; i++)
+  size(700, 700);
+ for(int i=0; i<stars.length; i++)
  {
   stars[i]=new Star();
- }*/
+ }
 }
 public void draw() 
 {
-  background(10, 7, 74);
+  background(8, 18, 81);
   space.show();
   space.move();
+  for(int i=0; i<stars.length; i++)
+   {
+    stars[i].show();
+   }
 }
 public void keyPressed()
 {
   if(key== '0')
   {
-    space.setX((int)(Math.random()*500));
-    space.setY((int)(Math.random()*500));
+    space.setX((int)(Math.random()*700));
+    space.setY((int)(Math.random()*700));
     space.setPointDirection((int)(Math.random()*360));
-
   }
-  if(key== '9')
-  {
-    //space.rotate()
-  }
-
+  if(key==CODED && keyCode==UP){space.accelerate(.5);}
+  if(key==CODED && keyCode==DOWN){space.accelerate(-.5);}
+  if(key==CODED && keyCode==RIGHT){space.rotate(-15);}
+  if(key==CODED && keyCode==LEFT){space.rotate(15);}
 }
-/*class Star
+class Star
 {
-  
-  Star()
+  private int myX, myY;
+  public Star()
   {
-
+    myX=(int)(Math.random()*700);
+    myY=(int)(Math.random()*700);
   }
-}*/
+  public void show()
+  {
+    fill(26, 192, 88);
+    ellipse(myX, myY, 2, 2);
+  }
+}
 class SpaceShip extends Floater  
 {   
    public SpaceShip ()
@@ -46,22 +54,22 @@ class SpaceShip extends Floater
     corners=4;
     xCorners = new int[corners]; 
     yCorners = new int[corners]; 
-    xCorners[0] = 0;
-    yCorners[0] = 36;
-    xCorners[1] = -12;
-    yCorners[1] = 0;
-    xCorners[2] = 0;
-    yCorners[2] = 12;
-    xCorners[3] = 12;
-    yCorners[3] = 0;
+    xCorners[0] = 36;
+    yCorners[0] = 0;
+    xCorners[1] = 0;
+    yCorners[1] = 12;
+    xCorners[2] = 12;
+    yCorners[2] = 0;
+    xCorners[3] = 0;
+    yCorners[3] = -12;
 
     //initialize
-    myColor= color(250);
-    myCenterX=250;
-    myCenterY=250;
+    myColor= color(216, 207, 202);
+    myCenterX=350;
+    myCenterY=350;
     setDirectionX(0);
     setDirectionY(0);
-    myPointDirection=180;
+    myPointDirection=0;
     } 
 
    public void setX(int x){myCenterX=x;}
