@@ -14,9 +14,12 @@ public void draw()
   background(8, 18, 81);
   space.show();
   space.move();
+
   for(int i=0; i<stars.length; i++)
    {
+    //stars[i].movingStars();
     stars[i].show();
+
    }
 }
 public void keyPressed()
@@ -35,11 +38,21 @@ public void keyPressed()
 class Star
 {
   private int myX, myY;
+  private boolean play;
   public Star()
   {
     myX=(int)(Math.random()*700);
     myY=(int)(Math.random()*700);
+    play=true;
   }
+  /*public void movingStars()
+  {
+    if(play==true)
+    {
+     //myX=myX+(int)(Math.random()*700);
+     myY++;//(int)(Math.random()*700);
+    }
+  }*/
   public void show()
   {
     fill(26, 192, 88);
