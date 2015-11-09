@@ -1,9 +1,9 @@
 SpaceShip space = new SpaceShip ();
-Star [] stars = new Star[150];
+Star [] stars = new Star[300];
 
 public void setup() 
 {
-  size(700, 700);
+  size(800, 700);
  for(int i=0; i<stars.length; i++)
  {
   stars[i]=new Star();
@@ -12,12 +12,14 @@ public void setup()
 public void draw() 
 {
   background(8, 18, 81);
+
   space.show();
   space.move();
 
   for(int i=0; i<stars.length; i++)
    {
-    //stars[i].movingStars();
+    
+    stars[i].movingStars();
     stars[i].show();
 
    }
@@ -32,31 +34,37 @@ public void keyPressed()
   }
   if(key==CODED && keyCode==UP){space.accelerate(.5);}
   if(key==CODED && keyCode==DOWN){space.accelerate(-.5);}
-  if(key==CODED && keyCode==RIGHT){space.rotate(-15);}
-  if(key==CODED && keyCode==LEFT){space.rotate(15);}
+  if(key==CODED && keyCode==LEFT){space.rotate(-15);}
+  if(key==CODED && keyCode==RIGHT){space.rotate(15);}
 }
 class Star
 {
-  private int myX, myY;
+  private int starX, starY, starColor;
   private boolean play;
   public Star()
   {
-    myX=(int)(Math.random()*700);
-    myY=(int)(Math.random()*700);
+    starX=(int)(Math.random()*800);
+    starY=(int)(Math.random()*700);
+    starColor=color(249, 249, 64);
     play=true;
   }
-  /*public void movingStars()
+  public void movingStars()
   {
     if(play==true)
     {
-     //myX=myX+(int)(Math.random()*700);
-     myY++;//(int)(Math.random()*700);
+     //myX=myX+((int)(Math.random()*800)-400);
+     starY++;
+     if(starY>690)
+     {
+      starX=(int)(Math.random()*820);
+      starY=(int)(Math.random()*10);
+     }
     }
-  }*/
+  }
   public void show()
   {
-    fill(26, 192, 88);
-    ellipse(myX, myY, 2, 2);
+    fill(starColor);
+    ellipse(starX, starY, 2, 2);
   }
 }
 class SpaceShip extends Floater  
@@ -77,7 +85,7 @@ class SpaceShip extends Floater
     yCorners[3] = -12;
 
     //initialize
-    myColor= color(216, 207, 202);
+    myColor= color(255);
     myCenterX=350;
     myCenterY=350;
     setDirectionX(0);
