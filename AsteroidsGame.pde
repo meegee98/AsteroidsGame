@@ -20,7 +20,7 @@ public void draw()
    {
     
     stars[i].movingStars();
-    stars[i].show();
+    stars[i].draw();
 
    }
 }
@@ -45,14 +45,13 @@ class Star
   {
     starX=(int)(Math.random()*800);
     starY=(int)(Math.random()*700);
-    starColor=color(249, 249, 64);
+    starColor= color(249, 249, 64);
     play=true;
   }
   public void movingStars()
   {
     if(play==true)
     {
-     //myX=myX+((int)(Math.random()*800)-400);
      starY++;
      if(starY>690)
      {
@@ -61,7 +60,7 @@ class Star
      }
     }
   }
-  public void show()
+  public void draw()
   {
     fill(starColor);
     ellipse(starX, starY, 2, 2);
