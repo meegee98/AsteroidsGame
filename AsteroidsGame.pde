@@ -27,6 +27,8 @@ public void keyPressed()
     space.setX((int)(Math.random()*700));
     space.setY((int)(Math.random()*700));
     space.setPointDirection((int)(Math.random()*360));
+    space.setDirectionX(0);
+    space.setDirectionY(0);
   }
   if(key==CODED && keyCode==UP){space.accelerate(.5);}
   if(key==CODED && keyCode==DOWN){space.accelerate(-.5);}
