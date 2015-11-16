@@ -105,11 +105,24 @@ class SpaceShip extends Floater
 }
 class Asteroid extends Floater
 {
-
+  private int rotSpeed;
   public Asteroid()
   {
-
+    /*corners=;
+    xCorners= new int [corners];
+    yCorners= new int [corners];
+    xCorners[]=;
+    yCorners[]=;
+    xCorners[]=;
+    yCorners[]=;
+    xCorners[]=;
+    yCorners[]=;*/
   }
+  /*public move()
+  {
+    //rotate(rotSpeed);
+    //super.move();
+  }*/
 
    public void setX(int x){myCenterX=x;}
    public int getX(){return (int)myCenterX;}
@@ -122,10 +135,6 @@ class Asteroid extends Floater
    public void setPointDirection(int degrees){myPointDirection=degrees;}   
    public double getPointDirection(){return myPointDirection;}     
   
-  public void move()
-  {
-
-  }
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
