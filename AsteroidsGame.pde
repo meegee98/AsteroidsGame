@@ -1,5 +1,6 @@
 SpaceShip space = new SpaceShip ();
 Star [] stars = new Star[300];
+Asteroid [] rocks = new Asteroid[10];
 
 public void setup() 
 {
@@ -7,6 +8,10 @@ public void setup()
  for(int i=0; i<stars.length; i++)
  {
   stars[i]=new Star();
+ }
+for(int i=0; i<rocks.length; i++)
+ {
+  rocks[i]=new Asteroid();
  }
 }
 public void draw() 
@@ -16,6 +21,11 @@ public void draw()
    {
     stars[i].movingStars();
     stars[i].draw();
+   }
+  for(int i=0; i<rocks.length; i++)
+   {
+    rocks[i].show();
+    rocks[i].move();
    }
   space.show();
   space.move();
@@ -105,24 +115,42 @@ class SpaceShip extends Floater
 }
 class Asteroid extends Floater
 {
-  private int rotSpeed;
+  private int myRotSpeed;
   public Asteroid()
   {
-    /*corners=;
+    corners=8;
     xCorners= new int [corners];
     yCorners= new int [corners];
-    xCorners[]=;
-    yCorners[]=;
-    xCorners[]=;
-    yCorners[]=;
-    xCorners[]=;
-    yCorners[]=;*/
+    xCorners[0]=16;
+    yCorners[0]=10;
+    xCorners[1]=14;
+    yCorners[1]=-14;
+    xCorners[2]=10;
+    yCorners[2]=-15;
+    xCorners[3]=-14;
+    yCorners[3]=-14;
+    xCorners[4]=16;
+    yCorners[4]=10;
+    xCorners[5]=-14;
+    yCorners[5]=14;
+    xCorners[6]=10;
+    yCorners[6]=15;
+    xCorners[7]=14;
+    yCorners[7]=14;
+
+    myColor= color(146, 199, 187);
+    myCenterX=(int)(Math.random()*800);
+    myCenterY=(int)(Math.random()*700);
+    setDirectionX(0);
+    setDirectionY(0);
+    myPointDirection=0;
+    myRotSpeed=(int)((Math.random()*10)-1);
   }
-  /*public move()
+  public void move()
   {
-    //rotate(rotSpeed);
-    //super.move();
-  }*/
+    rotate(myRotSpeed);
+    super.move();
+  }
 
    public void setX(int x){myCenterX=x;}
    public int getX(){return (int)myCenterX;}
