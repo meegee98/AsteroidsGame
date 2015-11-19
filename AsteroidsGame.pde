@@ -118,31 +118,33 @@ class Asteroid extends Floater
   private int myRotSpeed;
   public Asteroid()
   {
-    corners=8;
+    corners=9;
     xCorners= new int [corners];
     yCorners= new int [corners];
     xCorners[0]=16;
-    yCorners[0]=10;
-    xCorners[1]=14;
-    yCorners[1]=-14;
-    xCorners[2]=10;
-    yCorners[2]=-15;
-    xCorners[3]=-14;
-    yCorners[3]=-14;
-    xCorners[4]=16;
-    yCorners[4]=10;
-    xCorners[5]=-14;
-    yCorners[5]=14;
-    xCorners[6]=10;
-    yCorners[6]=15;
-    xCorners[7]=14;
-    yCorners[7]=14;
+    yCorners[0]=0;
+    xCorners[1]=15;
+    yCorners[1]=-15;
+    xCorners[2]=14;
+    yCorners[2]=-14;
+    xCorners[3]=0;
+    yCorners[3]=-15;
+    xCorners[4]=-14;
+    yCorners[4]=-14;
+    xCorners[5]=-16;
+    yCorners[5]=0;
+    xCorners[6]=-14;
+    yCorners[6]=14;
+    xCorners[7]=0;
+    yCorners[7]=15;
+    xCorners[8]=14;
+    yCorners[8]=14;
 
-    myColor= color(146, 199, 187);
+    myColor= color(104, 103, 103);
     myCenterX=(int)(Math.random()*800);
     myCenterY=(int)(Math.random()*700);
-    setDirectionX(0);
-    setDirectionY(0);
+    setDirectionX(1.5);
+    setDirectionY(1.5);
     myPointDirection=0;
     myRotSpeed=(int)((Math.random()*10)-1);
   }
@@ -150,6 +152,11 @@ class Asteroid extends Floater
   {
     rotate(myRotSpeed);
     super.move();
+    if(myCenterX>-1)
+    {
+      myCenterX=myCenterX+2;
+      myCenterY++;
+    }
   }
 
    public void setX(int x){myCenterX=x;}
