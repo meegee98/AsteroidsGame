@@ -16,7 +16,7 @@ for(int i=0; i<rocks.length; i++)
 }
 public void draw() 
 {
-  background(8, 18, 81);
+  background(0);
  for(int i=0; i<stars.length; i++)
    {
     stars[i].movingStars();
@@ -32,7 +32,7 @@ public void draw()
 }
 public void keyPressed()
 {
-  if(key== '0')
+  if(key=='0')
   {
     space.setX((int)(Math.random()*700));
     space.setY((int)(Math.random()*700));
@@ -118,35 +118,41 @@ class Asteroid extends Floater
   private int myRotSpeed;
   public Asteroid()
   {
-    corners=9;
+    corners=12;
     xCorners= new int [corners];
     yCorners= new int [corners];
     xCorners[0]=16;
     yCorners[0]=0;
-    xCorners[1]=15;
-    yCorners[1]=-15;
-    xCorners[2]=14;
+    xCorners[1]=14;
+    yCorners[1]=-9;
+    xCorners[2]=9;
     yCorners[2]=-14;
     xCorners[3]=0;
-    yCorners[3]=-15;
-    xCorners[4]=-14;
+    yCorners[3]=-16;
+    xCorners[4]=-9;
     yCorners[4]=-14;
-    xCorners[5]=-16;
-    yCorners[5]=0;
-    xCorners[6]=-14;
-    yCorners[6]=14;
-    xCorners[7]=0;
-    yCorners[7]=15;
-    xCorners[8]=14;
+    xCorners[5]=-14;
+    yCorners[5]=-9;
+    xCorners[6]=-16;
+    yCorners[6]=0;
+    xCorners[7]=-14;
+    yCorners[7]=9;
+    xCorners[8]=-9;
     yCorners[8]=14;
+    xCorners[9]=0;
+    yCorners[9]=16;
+    xCorners[10]=9;
+    yCorners[10]=14;
+    xCorners[11]=14;
+    yCorners[11]=9;
 
     myColor= color(104, 103, 103);
     myCenterX=(int)(Math.random()*800);
     myCenterY=(int)(Math.random()*700);
-    setDirectionX(1.5);
-    setDirectionY(1.5);
+    setDirectionX((int)(Math.random()*5)-2);
+    setDirectionY((int)(Math.random()*5)-2);
     myPointDirection=0;
-    myRotSpeed=(int)((Math.random()*10)-1);
+    myRotSpeed=((int)(Math.random()*10)-1);
   }
   public void move()
   {
