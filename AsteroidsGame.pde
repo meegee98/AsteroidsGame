@@ -80,17 +80,37 @@ class SpaceShip extends Floater
    public SpaceShip ()
    {
     //shape
-    corners=4;
+    corners=14;
     xCorners = new int[corners]; 
     yCorners = new int[corners]; 
-    xCorners[0] = 36;
+    xCorners[0] = 16;
     yCorners[0] = 0;
-    xCorners[1] = 0;
-    yCorners[1] = 12;
-    xCorners[2] = 12;
-    yCorners[2] = 0;
-    xCorners[3] = 0;
-    yCorners[3] = -12;
+    xCorners[1] = 12;
+    yCorners[1] = -4;
+    xCorners[2] = 1;
+    yCorners[2] = -7;
+    xCorners[3] = -7;
+    yCorners[3] = -9;
+    xCorners[4] = -15;
+    yCorners[4] = -14;
+    xCorners[5] = -23;
+    yCorners[5] = -14;
+    xCorners[6] = -15;
+    yCorners[6] = -4;
+    xCorners[7] = -16;
+    yCorners[7] = 0;
+    xCorners[8] = -15;
+    yCorners[8] = 4;
+    xCorners[9] = -23;
+    yCorners[9] = 14;
+    xCorners[10] = -15;
+    yCorners[10] = 14;
+    xCorners[11] = -7;
+    yCorners[11] = 9;
+    xCorners[12] = 1;
+    yCorners[12] = 7;
+    xCorners[13] = 12;
+    yCorners[13] = 4;
 
     //initialize
     myColor= color(146, 199, 187);
