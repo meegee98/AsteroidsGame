@@ -1,6 +1,9 @@
 SpaceShip space = new SpaceShip ();
 Star [] stars = new Star[300];
 Asteroid [] rocks = new Asteroid[10];
+/*ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
+Thingy someThingy = new Thingy(9);
+rock.add(new Asteroid(1));*/
 
 public void setup() 
 {
