@@ -1,9 +1,9 @@
 SpaceShip space = new SpaceShip ();
 Star [] stars = new Star[300];
 Asteroid [] rocks = new Asteroid[10];
-/*ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
-Thingy someThingy = new Thingy(9);
-rock.add(new Asteroid(1));*/
+// keep ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
+
+
 
 public void setup() 
 {
@@ -16,6 +16,11 @@ for(int i=0; i<rocks.length; i++)
  {
   rocks[i]=new Asteroid();
  }
+/*for(int i=1; i<10; i++)
+ {
+  rock.add(new Asteroid);
+  //rock.add(new Asteroid(1));
+ }*/
 }
 public void draw() 
 {
@@ -30,6 +35,10 @@ public void draw()
     rocks[i].show();
     rocks[i].move();
    }
+   /*for(int i= 1; i<rocks.size(); i++)
+   {
+    rocks.get(i).getAsteroid();
+   }*/
   space.show();
   space.move();
 }
