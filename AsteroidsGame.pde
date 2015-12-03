@@ -1,7 +1,7 @@
 SpaceShip space = new SpaceShip ();
 Star [] stars = new Star[300];
-Asteroid [] rocks = new Asteroid[10];
-// keep ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
+//Asteroid [] rocks = new Asteroid[10];
+ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
 
 
 
@@ -12,15 +12,15 @@ public void setup()
  {
   stars[i]=new Star();
  }
-for(int i=0; i<rocks.length; i++)
+/*for(int i=0; i<rocks.length; i++)
  {
   rocks[i]=new Asteroid();
- }
-/*for(int i=1; i<10; i++)
- {
-  rock.add(new Asteroid);
-  //rock.add(new Asteroid(1));
  }*/
+for(int i=1; i<15; i++)
+ {
+  //rock.add(new Asteroid);
+  rock.add(new Asteroid());
+ }
 }
 public void draw() 
 {
@@ -30,17 +30,22 @@ public void draw()
     stars[i].movingStars();
     stars[i].draw();
    }
-  for(int i=0; i<rocks.length; i++)
+  /*for(int i=0; i<rocks.length; i++)
    {
     rocks[i].show();
     rocks[i].move();
-   }
-   /*for(int i= 1; i<rocks.size(); i++)
-   {
-    rocks.get(i).getAsteroid();
    }*/
   space.show();
   space.move();
+
+  for(int i= 1; i<rock.size(); i++)
+   {
+    rock.get(i).move();
+    rock.get(i).show();
+    if(dist(rock.get(i).getX(), rock.get(i).getY(), space.getX(), space.getY())<25)
+      rock.remove(i);
+   }
+
 }
 public void keyPressed()
 {
@@ -209,6 +214,13 @@ class Asteroid extends Floater
    public double getPointDirection(){return myPointDirection;}     
   
 }
+/*class Bullet extneds Floater
+{
+  public Bullet(Spaceship theShip)
+  {
+
+  }
+}*/
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
