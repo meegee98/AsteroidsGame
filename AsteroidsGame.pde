@@ -3,8 +3,6 @@ Star [] stars = new Star[300];
 //Asteroid [] rocks = new Asteroid[10];
 ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
 
-
-
 public void setup() 
 {
   size(800, 700);
@@ -45,7 +43,6 @@ public void draw()
     if(dist(rock.get(i).getX(), rock.get(i).getY(), space.getX(), space.getY())<25)
       rock.remove(i);
    }
-
 }
 public void keyPressed()
 {
@@ -214,13 +211,22 @@ class Asteroid extends Floater
    public double getPointDirection(){return myPointDirection;}     
   
 }
-/*class Bullet extneds Floater
+/*class Bullet extends Floater
 {
   public Bullet(Spaceship theShip)
   {
-
+    myCenterX=350;
+    myCenterY=350;
+    myPointDirection=0;
+    double dRadians =myPointDirection*(Math.PI/180);
+    setDirectionX (5 * Math.cos(dRadians) + myDirectionX);
+    setDirectionY (5 * Math.sin(dRadians) + myDirectionY);
   }
-}*/
+  public void show()
+  {
+    //stroke()
+  }
+*/
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
