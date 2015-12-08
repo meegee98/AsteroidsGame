@@ -211,22 +211,35 @@ class Asteroid extends Floater
    public double getPointDirection(){return myPointDirection;}     
   
 }
-/*class Bullet extends Floater
+class Bullet extends Floater
 {
-  public Bullet(Spaceship theShip)
+  public Bullet(SpaceShip theShip)
   {
+    myColor= color(146, 199, 187);
     myCenterX=350;
     myCenterY=350;
     myPointDirection=0;
     double dRadians =myPointDirection*(Math.PI/180);
-    setDirectionX (5 * Math.cos(dRadians) + myDirectionX);
-    setDirectionY (5 * Math.sin(dRadians) + myDirectionY);
+    setDirectionX(5 * Math.cos(dRadians) +  myDirectionX);//(0);
+    setDirectionY(5 * Math.sin(dRadians) +  myDirectionY);//(0);
   }
-  public void show()
+  /*public void show()
   {
-    //stroke()
-  }
-*/
+    fill(255, 255, 255);
+    ellipse(20, 20, 10, 5);
+  }*/
+     public void setX(int x){myCenterX=x;}
+   public int getX(){return (int)myCenterX;}
+   public void setY(int y){myCenterY=y;}   
+   public int getY(){return (int)myCenterY;}   
+   public void setDirectionX(double x){myDirectionX=x;}   
+   public double getDirectionX(){return myDirectionX;}   
+   public void setDirectionY(double y){myDirectionY=y;;}   
+   public double getDirectionY(){return myDirectionY;}   
+   public void setPointDirection(int degrees){myPointDirection=degrees;}   
+   public double getPointDirection(){return myPointDirection;}   
+      
+}
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
