@@ -1,7 +1,7 @@
 SpaceShip space = new SpaceShip ();
 Star [] stars = new Star[300];
-//Asteroid [] rocks = new Asteroid[10];
 ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
+//ArrayList <Bullet> laser=new ArrayList <Bullet> ();
 
 public void setup() 
 {
@@ -58,6 +58,7 @@ public void keyPressed()
   if(key==CODED && keyCode==DOWN){space.accelerate(-.5);}
   if(key==CODED && keyCode==LEFT){space.rotate(-15);}
   if(key==CODED && keyCode==RIGHT){space.rotate(15);}
+  //if(key=='8'){laser.add(new Bullet());}
 }
 class Star
 {
@@ -225,10 +226,10 @@ class Bullet extends Floater
   }
   /*public void show()
   {
-    fill(255, 255, 255);
-    ellipse(20, 20, 10, 5);
+    fill(255, 0, 0);
+    ellipse(setX, setY, 10, 5);
   }*/
-     public void setX(int x){myCenterX=x;}
+   public void setX(int x){myCenterX=x;}
    public int getX(){return (int)myCenterX;}
    public void setY(int y){myCenterY=y;}   
    public int getY(){return (int)myCenterY;}   
