@@ -2,7 +2,7 @@ SpaceShip space = new SpaceShip ();
 Star [] stars = new Star[300];
 ArrayList <Asteroid> rock= new ArrayList <Asteroid> ();
 ArrayList <Bullet> laser=new ArrayList <Bullet> ();
-//Bullet laser= new Bullet();
+
 public void setup() 
 {
   size(800, 700);
@@ -23,10 +23,6 @@ public void draw()
     stars[i].movingStars();
     stars[i].draw();
    }
-
-  space.show();
-  space.move();
-
   for(int i= 1; i<rock.size(); i++)
    {
     rock.get(i).move();
@@ -41,12 +37,13 @@ public void draw()
             }
          }
    }
-
   for(int i=0; i<laser.size(); i++)
    {
     laser.get(i).show();
     laser.get(i).move();
    }
+  space.show();
+  space.move();
 }
 public void keyPressed()
 {
@@ -72,7 +69,7 @@ class Star
   {
     starX=(int)(Math.random()*800);
     starY=(int)(Math.random()*700);
-    starColor= color(249, 249, 64);
+    starColor= color(237, 240, 127);
     play=true;
   }
   public void movingStars()
@@ -132,7 +129,7 @@ class SpaceShip extends Floater
     yCorners[13] = 4;
 
     //initialize
-    myColor= color(146, 199, 187);
+    myColor= color(127, 18, 33);
     myCenterX=350;
     myCenterY=350;
     setDirectionX(0);
@@ -220,13 +217,13 @@ class Bullet extends Floater
 {
   public Bullet(SpaceShip theShip)
   {
-    myColor= color(146, 199, 187);
+    myColor= color(240,191,127);
     myCenterX=theShip.getX();
     myCenterY=theShip.getY();
-    myPointDirection=theShip.getPointDirection();//0;
+    myPointDirection=theShip.getPointDirection();
     double dRadians =myPointDirection*(Math.PI/180);
-    setDirectionX(5 * Math.cos(dRadians) +  myDirectionX);//(0);
-    setDirectionY(5 * Math.sin(dRadians) +  myDirectionY);//(0);
+    setDirectionX(5 * Math.cos(dRadians) +  myDirectionX);
+    setDirectionY(5 * Math.sin(dRadians) +  myDirectionY);
   }
   public void show()
   {
@@ -254,7 +251,7 @@ class Bullet extends Floater
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
-  protected int corners;  //the number of corners, a triangular floater has 3   
+  protected int corners;  
   protected int[] xCorners;   
   protected int[] yCorners;   
   protected int myColor;   
